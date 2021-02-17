@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "ru.example.weathertestapp"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def androidSupportVersion = '25.3.1'
+def constraintLayoutVersion = '1.0.2'
+def daggerVersion = '2.13'
+def moxyVersion = '1.5.3'
+def rxJavaVersion = '2.x.y'
+def rxAndroidVersion = '2.0.2'
+def retrofitVersion = '2.4.0'
+def retrofitRxJava2AdapterVersion = '1.0.0'
+def googleProgressBarVersion = '1.2.0'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // support library
+    implementation 'com.android.support:appcompat-v7:' + androidSupportVersion
+    implementation 'com.android.support.constraint:constraint-layout:' + constraintLayoutVersion
+    implementation 'com.android.support:design:' + androidSupportVersion
+    implementation 'com.android.support:cardview-v7:' + androidSupportVersion
+    implementation 'com.android.support:support-v4:' + androidSupportVersion
+    implementation 'com.android.support:appcompat-v7:' + androidSupportVersion
+
+    // dagger
+    implementation 'com.google.dagger:dagger:' + daggerVersion
+    annotationProcessor 'com.google.dagger:dagger-compiler:' + daggerVersion
+
+    // moxy
+    implementation 'com.arello-mobile:moxy:' + moxyVersion
+    implementation 'com.arello-mobile:moxy-android:' + moxyVersion
+    implementation 'com.arello-mobile:moxy-app-compat:' + moxyVersion
+    annotationProcessor 'com.arello-mobile:moxy-compiler:' + moxyVersion
+
+    // rx
+    implementation 'io.reactivex.rxjava2:rxjava:' + rxJavaVersion
+    implementation 'io.reactivex.rxjava2:rxandroid:' + rxAndroidVersion
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:' + retrofitVersion
+    implementation 'com.squareup.retrofit2:converter-gson:' + retrofitVersion
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:' + retrofitRxJava2AdapterVersion
+
+    // googleProgressBar
+    implementation 'com.jpardogo.googleprogressbar:library:' + googleProgressBarVersion
+}
